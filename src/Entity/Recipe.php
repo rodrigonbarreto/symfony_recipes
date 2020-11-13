@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=RecipeRepository::class)
  */
-class Recipe
+class Recipe implements \JsonSerializable
 {
     /**
      * @ORM\Id
@@ -145,5 +145,14 @@ class Recipe
         $this->category = $category;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'Description' => $this->getDescription(),
+        ];
     }
 }
