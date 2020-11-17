@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\CategorySerializerTrait;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,8 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-class Category
+class Category implements \JsonSerializable
 {
+    use CategorySerializerTrait;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -79,5 +82,13 @@ class Category
         }
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+      return [
+        'id' => $this->getId(),
+        'name' => $this->getName(),
+        ];
     }
 }

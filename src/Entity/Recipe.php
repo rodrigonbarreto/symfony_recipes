@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\RecipeSerializerTrait;
 use App\Repository\RecipeRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Recipe implements \JsonSerializable
 {
+    use RecipeSerializerTrait;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -145,14 +148,5 @@ class Recipe implements \JsonSerializable
         $this->category = $category;
 
         return $this;
-    }
-
-    public function jsonSerialize()
-    {
-        return [
-            'id' => $this->getId(),
-            'name' => $this->getName(),
-            'Description' => $this->getDescription(),
-        ];
     }
 }
