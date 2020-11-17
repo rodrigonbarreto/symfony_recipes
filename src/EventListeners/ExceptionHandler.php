@@ -2,8 +2,9 @@
 
 namespace App\EventListeners;
 
-use App\Entity\HypermidiaResponse;
+
 use App\Helper\CustomException\EntityFactoryException;
+use App\Helper\Responses\HypermidiaResponse;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
@@ -49,7 +50,7 @@ class ExceptionHandler implements EventSubscriberInterface
             $response = HypermidiaResponse::fromError($event->getThrowable())
                 ->getResponse();
 
-            $response->setStatusCode(Response::HTTP_BAD_REQUEST);
+            $response->setStatusCode(Response::HTTP_UNPROCESSABLE_ENTITY);
             $event->setResponse($response);
         }
     }

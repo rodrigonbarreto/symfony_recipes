@@ -43,8 +43,22 @@ class RecipeFactory
     {
 
         if (!property_exists($objectToJson, 'name')) {
-
             throw new EntityFactoryException('name is required');
+        }
+
+        if (!property_exists($objectToJson, 'description')) {
+            throw new EntityFactoryException('description is required');
+        }
+        if (!property_exists($objectToJson, 'ingredient')) {
+            throw new EntityFactoryException('ingredient is required');
+        }
+
+        if (!property_exists($objectToJson, 'portions')) {
+            throw new EntityFactoryException('portions is required');
+        }
+
+        if (!property_exists($objectToJson, 'preparationTime')) {
+            throw new EntityFactoryException('preparationTime is required');
         }
     }
 
