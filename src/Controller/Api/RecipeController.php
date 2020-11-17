@@ -57,11 +57,7 @@ class RecipeController extends AbstractController
      */
     public function show(Recipe $recipe): Response
     {
-        return $this->json([$recipe],
-            Response::HTTP_OK,
-            [],
-            [ObjectNormalizer::IGNORED_ATTRIBUTES => ['update_at']]
-        );
+        return $this->json($recipe);
     }
 
     /**

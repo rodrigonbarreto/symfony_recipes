@@ -10,14 +10,14 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $category = new Category();
-        $category->setName('sweet');
-        $manager->persist($category);
-
-        $category2 = new Category();
-        $category2->setName('salty');
-
-        $manager->persist($category2);
-        $manager->flush();
+//        $category = new Category();
+//        $category->setName('sweet');
+//        $manager->persist($category);
+//
+//        $category2 = new Category();
+//        $category2->setName('salty');
+//
+//        $manager->persist($category2);
+//        $manager->flush();
     }
 }
