@@ -32,6 +32,11 @@ class Category implements \JsonSerializable
      */
     private $recipes;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->recipes = new ArrayCollection();
