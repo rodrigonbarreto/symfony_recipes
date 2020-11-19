@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 class RecipeTest extends BaseTest
 {
-
     public function testMakeSureNeedAuthentication()
     {
         $client = static::createClient();
