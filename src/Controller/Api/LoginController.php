@@ -12,7 +12,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 /**
- * @Route("/api")
+ * @Route("")
  */
 class LoginController extends AbstractController
 {

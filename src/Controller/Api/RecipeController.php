@@ -44,7 +44,7 @@ class RecipeController extends AbstractController
     }
 
     /**
-     * @Route("/", name="api_recipe", methods={"GET"})
+     * @Route(name="api_recipe", methods={"GET"})
      */
     public function index(): Response
     {

@@ -29,8 +29,8 @@ class JwtAuthenticator extends AbstractGuardAuthenticator
 
     public function supports(Request $request)
     {
-        return $request->getPathInfo() == 'api/login'
-            || stristr($request->getPathInfo(), 'api') == true;
+//        dd(stristr($request->getPathInfo(), 'api') == true);
+        return stristr($request->getPathInfo(), 'api') == true;
 
         return true;
     }
@@ -39,7 +39,7 @@ class JwtAuthenticator extends AbstractGuardAuthenticator
     {
         try {
             $token = str_replace('Bearer ', '', $request->headers->get('Authorization'));
-            return JWT::decode($token, $_ENV['JWT_KEY'], ['HS256']);
+            return JWT::decode($token, $_SERVER['JWT_KEY'], ['HS256']);
         } catch (\Exception $e) {
             return false;
         }
